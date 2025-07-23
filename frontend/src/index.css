@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 /* index.css */
+
+body {
+  background-color: #000000;
+}

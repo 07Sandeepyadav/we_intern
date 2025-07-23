@@ -1,56 +1,105 @@
+import { motion } from "framer-motion";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function Main() {
-    return (
-        <div className="p-5 bg-gray-900 min-h-screen text-gray-100 font-sans my-10 ">
-            {/* Header Section */}
-            <header className="text-center space-y-4">
-            <h1 className="mt-10 font-extrabold text-4xl sm:text-5xl leading-snug text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                Push Your Developer Career to the Next Level!
-                </h1>
-                <p className="font-medium text-gray-400 text-lg sm:text-xl max-w-3xl mx-auto">
-                    Learn the exact steps to master design, development, data analysis, and more. 
-                    Gain confidence with structured learning and secure job assistance.
-                </p>
-            </header>
+  return (
+    <div className="bg-black text-white min-h-screen p-6 font-sans">
+      {/* Top Trusted Logos Section */}
+      <motion.div 
+        className="text-center mb-12"
+        initial={{ opacity: 0, y: -40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <p className="text-xl sm:text-2xl text-gray-300 font-medium mb-6">
+          Trusted by 1000+ businesses across the world
+        </p>
+        <motion.div 
+          className="flex flex-wrap justify-center gap-8 grayscale opacity-90"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: {},
+            visible: {
+              transition: {
+                staggerChildren: 0.1
+              }
+            }
+          }}
+        >
+          {["Velocity", "Synergy", "Enigma", "Spectrum", "Lumina", "Vortex"].map((name, index) => (
+            <motion.span
+              key={index}
+              className="text-gray-400 text-base sm:text-lg font-semibold hover:text-white cursor-default transition-colors duration-200"
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              {name}
+            </motion.span>
+          ))}
+        </motion.div>
+      </motion.div>
 
-            {/* Call-to-Action Buttons */}
-            <section className="flex justify-center my-10 gap-4">
-                <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 shadow-lg transition-transform transform hover:scale-105">
-                    Start Learning Now
-                </button>
-                <button className="bg-pink-500 text-white px-8 py-3 rounded-lg hover:bg-pink-600 shadow-lg transition-transform transform hover:scale-105">
-                    See What's Inside
-                </button>
-            </section>
+      {/* Center Logo and Heading Section */}
+      <motion.div 
+        className="text-center my-12"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <motion.div 
+          className="w-[150px] h-[150px] rounded-full mx-auto bg-white flex items-center justify-center mb-8 shadow-lg"
+          animate={{ rotate: [0, 10, -10, 0] }}
+          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+        >
+          <img src="logo.jpg" className="rounded-lg w-[100px]" alt="Logo" />
+        </motion.div>
+        <motion.h1 
+          className="text-3xl sm:text-4xl md:text-5xl font-bold leading-snug"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1.2 }}
+        >
+          Empowering authentic connections for a <br />
+          vibrant social experience.
+        </motion.h1>
+      </motion.div>
 
-            {/* Content Section */}
-            <section className="flex flex-col md:flex-row items-center my-10 space-y-8 md:space-y-0 md:space-x-10 border-2 border-transparent m-12 px-10 py-5 rounded-lg mx-40 shadow-xl bg-gradient-to-r from-indigo-300 via-purple-500 to-pink-300 text-white">
-                {/* Image Section */}
-                <div className="md:w-1/2 flex justify-center ">
-                    <img
-                        className="h-60 w-60 md:h-80 md:w-80 object-cover rounded-xl border-4 border-purple-400 shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300"
-                        src="https://jep-asset.akamaized.net/jiocom/static/images/mobile-One_time_recharge_for_one_full_year.webp"
-                        alt="Learning Illustration"
-                    />
-                </div>
-                {/* Info and Buttons */}
-                <div className="md:w-1/2 text-center space-y-5">
-                    <div className="flex justify-center gap-6 mr-32">
-                        <button className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 shadow-md transition-transform transform hover:scale-105">
-                            Developer
-                        </button>
-                        <button className="bg-pink-500 text-white px-6 py-2 rounded-md hover:bg-pink-600 shadow-md transition-transform transform hover:scale-105">
-                            WE_LEARN
-                        </button>
-                    </div>
-                    <h2 className="text-3xl md:text-4xl text-white font-bold mr-32">
-                        Get the Tech Career You Deserve
-                    </h2>
-                    <p className="text-gray-300 text-lg leading-relaxed mr-32">
-                        Accelerate your journey with a structured internship program that builds confidence 
-                        and gets you to your dream career faster.
-                    </p>
-                </div>
-            </section>
-        </div>
-    );
+      {/* Stats Section */}
+      <motion.div 
+        className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-5xl mx-auto text-center text-white/90 mt-14"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: {},
+          visible: {
+            transition: {
+              staggerChildren: 0.2
+            }
+          }
+        }}
+      >
+        {[
+          { count: "500k+", text: "Shared moments and stories every month" },
+          { count: "200k+", text: "Communities thriving across diverse interests" },
+          { count: "50+", text: "Countries where Appit is growing strong" },
+        ].map((item, i) => (
+          <motion.div 
+            key={i}
+            className="p-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 className="text-4xl font-bold">{item.count}</h2>
+            <p className="mt-2 text-sm text-gray-400">{item.text}</p>
+          </motion.div>
+        ))}
+      </motion.div>
+
+      <ToastContainer position="top-center" autoClose={3000} />
+    </div>
+  );
 }
